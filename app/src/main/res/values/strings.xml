@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">VaipraAssessment</string>
+    <string name="skip">Skip</string>
+    <string name="meal_selection">Meal Selection</string>
+    <string name="pnq_dcq">PNQ - DCQ</string>
+    <string name="dcq_pnq">DCQ - PNQ</string>
+    <string name="add_meals">Add Meals</string>
+    <string name="add">Add</string>
+</resources>
