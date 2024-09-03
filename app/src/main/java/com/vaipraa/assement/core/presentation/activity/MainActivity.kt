@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                     if (!it.isSelected) it.segmentId = viewModel.currentSegmentId
                 }
                 segmentAdapter?.submitData(viewModel.segments)
-                binding.rvSegment.smoothScrollToPosition(viewModel.currentSegmentId)
+                binding.rvSegment.scrollToPosition(viewModel.currentSegmentId+1)
 
             }
         }

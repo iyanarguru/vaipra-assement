@@ -119,6 +119,7 @@
         android:background="@color/yellow"
         android:text="Proceed"
         android:textAllCaps="false"
+        android:fontFamily="@font/poppins"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"

@@ -34,13 +34,15 @@
             android:text="Vegetable Sandwich"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/poppins"
             app:layout_constraintEnd_toStartOf="@+id/addButton"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@+id/foodImage"
             app:layout_constraintTop_toTopOf="@+id/foodImage" />
 
         <TextView
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins"
             android:id="@+id/foodPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,8 +57,9 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addButton"
+            android:fontFamily="@font/poppins"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_margin="8dp"
             android:background="@drawable/rounded_button_background"
             android:text="Add"

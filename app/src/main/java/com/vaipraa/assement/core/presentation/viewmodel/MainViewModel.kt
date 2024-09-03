@@ -18,175 +18,166 @@ class MainViewModel @Inject constructor(
     val segments = listOf(
         Segment(id = 1, "PNQ - DCQ", isSelected = true),
         Segment(id = 2, name = "DCQ - PNQ", isSelected = false),
-        Segment(id = 3, name = "DCQ - PNQ", isSelected = false),
-//        Segment(id = 4, name = "DCQ - PNQ", isSelected = false),
-//        Segment(id = 5, name = "DCQ - PNQ", isSelected = false),
-//        Segment(id = 6, name = "DCQ - PNQ", isSelected = false),
-//        Segment(id = 7, name = "DCQ - PNQ", isSelected = false),
-//        Segment(id = 8, name = "DCQ - PNQ", isSelected = false),
-//        Segment(id = 9, name = "DCQ - PNQ", isSelected = false),
-//        Segment(id = 10, name = "DCQ - PNQ", isSelected = false),
-//        Segment(id = 11, name = "DCQ - PNQ", isSelected = false),
     )
 
     val meals = listOf(
         Meal(
             id = 1,
             image = R.drawable.meal_icon,
-            name = "Coke",
-            price = "$200",
+            name = "Vegetable Sandwich",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
             id = 2,
             image = R.drawable.meal_icon,
-            name = "Coke1",
-            price = "$200",
+            name = "Veg Kebab Roll",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
             id = 3,
             image = R.drawable.meal_icon,
-            name = "Coke2",
-            price = "$200",
-            isSelected = false,
-            segmentId = 1
-        ),
-        Meal(
-            id = 3,
-            image = R.drawable.meal_icon,
-            name = "Coke2",
-            price = "$200",
-            isSelected = false,
-            segmentId = 1
-        ),
-        Meal(
-            id = 3,
-            image = R.drawable.meal_icon,
-            name = "Coke2",
-            price = "$200",
-            isSelected = false,
-            segmentId = 1
-        ),
-        Meal(
-            id = 3,
-            image = R.drawable.meal_icon,
-            name = "Coke2",
-            price = "$200",
-            isSelected = false,
-            segmentId = 1
-        ),
-        Meal(
-            id = 3,
-            image = R.drawable.meal_icon,
-            name = "Coke2",
-            price = "$200",
-            isSelected = false,
-            segmentId = 1
-        ),
-        Meal(
-            id = 3,
-            image = R.drawable.meal_icon,
-            name = "Coke2",
-            price = "$200",
+            name = "Coke 300 ML",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
             id = 4,
             image = R.drawable.meal_icon,
-            name = "Coke3",
-            price = "$200",
+            name = "Salad",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
             id = 5,
             image = R.drawable.meal_icon,
-            name = "Coke4",
-            price = "$200",
+            name = "Kiddie Delight",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
             id = 6,
             image = R.drawable.meal_icon,
-            name = "Coke5",
-            price = "$200",
+            name = "Low calorie veg",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
-            id = 6,
+            id = 7,
             image = R.drawable.meal_icon,
-            name = "Coke6",
-            price = "$200",
+            name = "Non Veg Biryani",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
-            id = 6,
+            id = 8,
             image = R.drawable.meal_icon,
-            name = "Coke7",
-            price = "$200",
+            name = "Veg Biryani",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
-            id = 6,
+            id = 9,
             image = R.drawable.meal_icon,
-            name = "Coke5",
-            price = "$200",
+            name = "Chicken Soup",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
-            id = 6,
+            id = 10,
             image = R.drawable.meal_icon,
-            name = "Coke5",
-            price = "$200",
+            name = "Veg Soup",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
-            id = 6,
+            id = 11,
             image = R.drawable.meal_icon,
-            name = "Coke5",
-            price = "$200",
+            name = "Vegetable Sandwich",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
-            id = 6,
+            id = 12,
             image = R.drawable.meal_icon,
-            name = "Coke5",
-            price = "$200",
+            name = "Veg Kebab Roll",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
-            id = 6,
+            id = 13,
             image = R.drawable.meal_icon,
-            name = "Coke5",
-            price = "$200",
+            name = "Coke 500 ML",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
-            id = 6,
+            id = 14,
             image = R.drawable.meal_icon,
-            name = "Coke5",
-            price = "$200",
+            name = "Salad",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
         Meal(
-            id = 6,
+            id = 15,
             image = R.drawable.meal_icon,
-            name = "Coke5",
-            price = "$200",
+            name = "Kiddie Delight",
+            price = "₹250",
+            isSelected = false,
+            segmentId = 1
+        ),
+        Meal(
+            id = 16,
+            image = R.drawable.meal_icon,
+            name = "Low calorie veg",
+            price = "₹250",
+            isSelected = false,
+            segmentId = 1
+        ),
+        Meal(
+            id = 17,
+            image = R.drawable.meal_icon,
+            name = "Non Veg Biryani",
+            price = "₹250",
+            isSelected = false,
+            segmentId = 1
+        ),
+        Meal(
+            id = 18,
+            image = R.drawable.meal_icon,
+            name = "Veg Biryani",
+            price = "₹250",
+            isSelected = false,
+            segmentId = 1
+        ),
+        Meal(
+            id = 19,
+            image = R.drawable.meal_icon,
+            name = "Chicken Soup",
+            price = "₹250",
+            isSelected = false,
+            segmentId = 1
+        ),
+        Meal(
+            id = 20,
+            image = R.drawable.meal_icon,
+            name = "Veg Soup",
+            price = "₹250",
             isSelected = false,
             segmentId = 1
         ),
