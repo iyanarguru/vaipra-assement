@@ -6,9 +6,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
-import androidx.recyclerview.widget.RecyclerView
-import com.vaipraa.assement.core.GenericAdapter
 import com.vaipraa.assement.R
+import com.vaipraa.assement.core.GenericAdapter
 import com.vaipraa.assement.core.presentation.viewmodel.MainViewModel
 import com.vaipraa.assement.databinding.ActivityMainBinding
 import com.vaipraa.assement.databinding.ItemMealBinding
@@ -40,24 +39,21 @@ class MainActivity : AppCompatActivity() {
                     if (!it.isSelected) it.segmentId = viewModel.currentSegmentId
                 }
                 segmentAdapter?.submitData(viewModel.segments)
-                binding.rvSegment.scrollToPosition(viewModel.currentSegmentId+1)
-
+                binding.rvMealsList.smoothScrollToPosition(0)
+            } else {
+                showToast(getString(R.string.no_more_segment_available))
             }
         }
         segmentAdapter = GenericAdapter(itemList = viewModel.segments,
             layoutResId = R.layout.item_segment,
             bind = { item, binding ->
                 if (binding is ItemSegmentBinding) {
-                    if (item.isSelected) {
-                        binding.trip.setBackgroundDrawable(
+                    binding.apply {
+                        trip.text = item.name
+                        trip.setBackgroundDrawable(
                             ContextCompat.getDrawable(
-                                this, R.drawable.selected_rounded_corner
-                            )
-                        )
-                    } else {
-                        binding.trip.setBackgroundDrawable(
-                            ContextCompat.getDrawable(
-                                this, R.drawable.unselected_rounded_corner
+                                this@MainActivity,
+                                if (item.isSelected) R.drawable.selected_rounded_corner else R.drawable.unselected_rounded_corner
                             )
                         )
                     }
@@ -68,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.meals.forEach { if (!it.isSelected) it.segmentId = item.id }
                 viewModel.segments.map { it.isSelected = it.id == item.id }
                 segmentAdapter?.submitData(viewModel.segments)
+                binding.rvMealsList.smoothScrollToPosition(0)
             }).apply {
             binding.rvSegment.adapter = this@apply
         }
@@ -76,19 +73,21 @@ class MainActivity : AppCompatActivity() {
             layoutResId = R.layout.item_meal,
             bind = { item, binding ->
                 if (binding is ItemMealBinding) {
-                    binding.addButton.apply {
-                        text = if (item.isSelected) "Remove" else "Add"
-                    }
-                    if (item.isSelected) {
-                        binding.rootLayout.background = ResourcesCompat.getDrawable(
-                            resources, R.drawable.selected_rounded_corner, null
+                    binding.apply {
+                        addButton.apply {
+                            text =
+                                if (item.isSelected) getString(R.string.remove) else getString(R.string.add)
+                        }
+                        foodPrice.apply {
+                            text = item.price
+                        }
+                        rootLayout.background = ResourcesCompat.getDrawable(
+                            resources,
+                            if (item.isSelected) R.drawable.selected_rounded_corner else R.drawable.unselected_rounded_corner,
+                            null
                         )
-                    } else {
-                        binding.rootLayout.background = ResourcesCompat.getDrawable(
-                            resources, R.drawable.unselected_rounded_corner, null
-                        )
+                        foodName.text = item.name
                     }
-                    binding.foodName.text = item.name
                 }
             },
             onItemClick = { meal ->
@@ -100,15 +99,9 @@ class MainActivity : AppCompatActivity() {
                     if (segmentBasedSelectedMeals.isNotEmpty()) {
                         //un select the selected meal
                         if (segmentBasedSelectedMeals.first().mealId == meal.id) {
-                            viewModel.selectedMeals.remove(segmentBasedSelectedMeals.first())
-
-
-                            viewModel.meals.map { if (it.id == meal.id) it.isSelected = false }
-                            mealAdapter?.submitData(viewModel.meals)
+                            removeSelectedItem(segmentBasedSelectedMeals, meal)
                         } else {
-                            Toast.makeText(
-                                this, "You can select only one meal per segment", Toast.LENGTH_SHORT
-                            ).show()
+                            showToast(getString(R.string.you_can_select_only_one_meal_per_segment))
                         }
 
                     } else {
@@ -124,9 +117,7 @@ class MainActivity : AppCompatActivity() {
 
                     }
                 } else {
-                    Toast.makeText(
-                        this, "You can't deselect another segment meal", Toast.LENGTH_SHORT
-                    ).show()
+                    showToast(getString(R.string.you_can_t_deselect_another_segment_meal))
                 }
 
             }).apply {
@@ -134,23 +125,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun removeSelectedItem(
+        segmentBasedSelectedMeals: List<SelectedMeals>, meal: Meal
+    ) {
+        viewModel.selectedMeals.remove(segmentBasedSelectedMeals.first())
+        viewModel.meals.map { if (it.id == meal.id) it.isSelected = false }
+        mealAdapter?.submitData(viewModel.meals)
+    }
+
+    private fun showToast(alertContent: String) {
+        Toast.makeText(this, alertContent, Toast.LENGTH_SHORT).show()
+    }
 }
 
-data class Segment(
-    val id: Int,
-    val name: String,
-    var isSelected: Boolean,
-)
 
-data class SelectedMeals(
-    var segmentId: Int = RecyclerView.NO_POSITION, var mealId: Int = RecyclerView.NO_POSITION
-)
-
-data class Meal(
-    val id: Int,
-    val image: Int,
-    val name: String,
-    val price: String,
-    var isSelected: Boolean,
-    var segmentId: Int
-)

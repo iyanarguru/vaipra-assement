@@ -117,7 +117,7 @@
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:background="@color/yellow"
-        android:text="Proceed"
+        android:text="@string/proceed"
         android:textAllCaps="false"
         android:fontFamily="@font/poppins"
         android:textColor="@color/white"

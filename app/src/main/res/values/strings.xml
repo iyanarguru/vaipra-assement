@@ -6,4 +6,9 @@
     <string name="dcq_pnq">DCQ - PNQ</string>
     <string name="add_meals">Add Meals</string>
     <string name="add">Add</string>
+    <string name="proceed">Proceed</string>
+    <string name="you_can_t_deselect_another_segment_meal">You can\'t deselect another segment meal</string>
+    <string name="you_can_select_only_one_meal_per_segment">You can select only one meal per segment</string>
+    <string name="remove">Remove</string>
+    <string name="no_more_segment_available">No more segment available</string>
 </resources>
